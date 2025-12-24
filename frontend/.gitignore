@@ -1,0 +1,23 @@
+# Node
+node_modules/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+.vercel/
+
+# Vite
+.vite/
+
+# Logs
+*.log
+
+# Cache
+.eslintcache

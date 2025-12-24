@@ -1,0 +1,49 @@
+# =========================
+# General
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# =========================
+# Environment variables (CRITICAL)
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Build outputs
+# =========================
+dist/
+build/
+out/
+.next/
+.vercel/
+.turbo/
+
+# =========================
+# Testing
+# =========================
+coverage/
+
+# =========================
+# Cache
+# =========================
+.cache/
+.eslintcache
+.parcel-cache/
+.vite/

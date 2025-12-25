@@ -35,6 +35,12 @@ app.get('/testing' , (req,res) => {
     res.json("Hello Welcome To The Project what ar ")
 });
 
+app.post('/testing-post' , (req,res) => {
+    const data = req.body;
+    console.log("Data Received " , data);
+    res.json({message : "Data Received Successfully" , data})
+});
+
 
 //** make aur app ready for deployment
 if(ENV.NODE_ENV === "production"){

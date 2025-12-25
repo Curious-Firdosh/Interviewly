@@ -6,6 +6,11 @@ import {serve} from "inngest/express"
 import path from "path"
 import cors from "cors"
 import { inngest , functions} from "./lib/ingest.js"
+import dotenv from "dotenv"
+
+dotenv.config({quiet : true});
+
+const PORT = ENV.PORT || 4000;
 
 
 //@ Create Server 
@@ -47,8 +52,8 @@ const startServer = async () => {
     try {
         
         await  connectDb();
-        app.listen(ENV.PORT, () => {
-            console.log(`app is running SuccessFullyy at port ${ENV.PORT}`) 
+        app.listen(PORT, () => {
+            console.log(`app is running SuccessFullyy at port ${PORT}`) 
         })
 
     }

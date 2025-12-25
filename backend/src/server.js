@@ -1,25 +1,37 @@
 // const express = require("express")  -- common js 
 import express from "express"
 import { ENV } from "./lib/env.js"
-
 import { connectDb } from "./lib/db.js"
-
+import {serve} from "inngest/express"
 import path from "path"
+import cors from "cors"
+import { inngest , functions} from "./lib/ingest.js"
 
 
-// Create Server 
-const app = express()
+//@ Create Server 
+const app = express();
 
-//👉 “Give me my project’s main folder path.”
+
+
+//@ Add Middilewares 
+app.use(express.json());
+
+// ! Cors : cross origin Creadential : true --> server allows browser to include cookies on request 
+app.use(cors({ origin : ENV.CLIENT_URL , credentials : true}))
+
+app.use('/api/inngest' , serve({client : inngest , functions}))
+
+
+//** Give me my project’s main folder path.”
 const __dirname = path.resolve()
 
-// Then Send Get Http Request 
+//** Then Send Get Http Request 
 app.get('/testing' , (req,res) => {
     res.json("Hello Welcome To The Project what ar ")
 });
 
 
-// make aur app ready for deployment
+//** make aur app ready for deployment
 if(ENV.NODE_ENV === "production"){
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
@@ -29,7 +41,7 @@ if(ENV.NODE_ENV === "production"){
 }
 
 
-// Best Way To Start The Server 
+// !! Best Way To Start The Server 
 const startServer = async () => {
 
     try {

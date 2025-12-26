@@ -1,5 +1,5 @@
 
-import { SignInButton, SignOutButton } from '@clerk/clerk-react'
+import { SignInButton, SignOutButton, UserButton } from '@clerk/clerk-react'
 
 
 function App() {
@@ -8,8 +8,15 @@ function App() {
   return (
     <>
         <h1>Welcome To The App</h1>
-        <SignOutButton/>
-        <SignInButton/>
+        <SignOutButton>
+            <SignInButton mode='modal'/>
+        </SignOutButton>
+
+        <SignInButton>
+            <SignOutButton/>
+        </SignInButton>
+
+        <UserButton/>
     </>
   )
 }

@@ -5,7 +5,7 @@ import { connectDb } from "./lib/db.js"
 import cors from "cors"
 import { inngest , functions} from "./lib/ingest.js"
 import { serve } from "inngest/express"
-
+import path from "path"
 
 
 //@ Create Server 
@@ -23,7 +23,7 @@ app.use('/api/inngest' , serve({client : inngest , functions}))
 
 
 //** Give me my project’s main folder path.”
-// const __dirname = path.resolve()
+ const __dirname = path.resolve()
 
 //** Then Send Get Http Request 
 app.get('/testing' , (req,res) => {
@@ -37,14 +37,14 @@ app.post('/testing-post' , (req,res) => {
 });
 
 
-// //** Removed THAT LINE BECOUSE THAT IS GIVING MORE LOAD TO THE SERVER
-// if(ENV.NODE_ENV === "production"){
-//     app.use(express.static(path.join(__dirname, "../frontend/dist")));
+//** Removed THAT LINE BECOUSE THAT IS GIVING MORE LOAD TO THE SERVER
+if(ENV.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-//     app.get("/{*any}" , (req,res) => {
-//         res.sendFile(path.join(__dirname, "../frontend" , "dist" , "index.html"))
-//     })
-// }
+    app.get("/{*any}" , (req,res) => {
+        res.sendFile(path.join(__dirname, "../frontend" , "dist" , "index.html"))
+    })
+}
 
 
 // !! Best Way To Start The Server 

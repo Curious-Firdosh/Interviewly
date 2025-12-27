@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Curious-Firdosh/Interviewly/issues"
   },
-  "homepage": "https://github.com/Curious-Firdosh/Interviewly#readme"
+  "homepage": "https://github.com/Curious-Firdosh/Interviewly#readme",
+  "dependencies": {
+    "@clerk/express": "^1.7.41"
+  }
 }

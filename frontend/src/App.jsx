@@ -8,15 +8,15 @@ function App() {
   return (
     <>
         <h1>Welcome To The App</h1>
-        <SignOutButton>
-            <SignInButton mode='modal'/>
-        </SignOutButton>
 
-        <SignInButton>
-            <SignOutButton/>
-        </SignInButton>
+    
+      <SignInButton mode="modal" />
+  
 
-        <UserButton/>
+
+      <UserButton />
+      <SignOutButton />
+ 
     </>
   )
 }
